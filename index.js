@@ -1,36 +1,29 @@
-var scene, camera, renderer;
-var geometry, material, mesh;
 
-init();
-animate();
+/**************** SETUP **********************/
+var scene = new THREE.Scene()
 
-function init() {
+// field of view, aspect ratio, near clipping plane, far clipping plane
+var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
 
-    scene = new THREE.Scene();
+var renderer = new THREE.WebGLRenderer()
+renderer.setSize(window.innerWidth, window.innerHeight)
+document.body.appendChild(renderer.domElement)
 
-    camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
-    camera.position.z = 1000;
 
-    geometry = new THREE.BoxGeometry( 200, 200, 200 );
-    material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: true } );
+/**************** CUBE, ETC **********************/
+var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+var cube = new THREE.Mesh( geometry, material );
+scene.add( cube );
 
-    mesh = new THREE.Mesh( geometry, material );
-    scene.add( mesh );
+camera.position.z = 5;
 
-    renderer = new THREE.WebGLRenderer();
-    renderer.setSize( window.innerWidth, window.innerHeight );
+/**************** RENDER **********************/
 
-    document.body.appendChild( renderer.domElement );
-
+function render() {
+	requestAnimationFrame( render );
+  cube.rotation.x += 0.1;
+  cube.rotation.y += 0.1;
+	renderer.render( scene, camera );
 }
-
-function animate() {
-
-    requestAnimationFrame( animate );
-
-    mesh.rotation.x += 0.01;
-    mesh.rotation.y += 0.02;
-
-    renderer.render( scene, camera );
-
-}
+render();
