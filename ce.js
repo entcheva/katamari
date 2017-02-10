@@ -21,7 +21,7 @@ scene.add(cone);
 // icosahedron
 
 
-// move cube on keydown
+// move cube/cone on keydown
 document.addEventListener('keydown', keyboard, false)
 
 function keyboard(key) {
@@ -36,9 +36,16 @@ function keyboard(key) {
 		cube.position.x += speed;
 	} else if (key.which === 37) { // left
 		cube.position.x -= speed;
+	} else if (key.which === 69) { // e
+		cone.position.z += speed;
+	} else if (key.which === 88) { // x
+		cone.position.z -= speed;
+	} else if (key.which === 83) { // s
+		cone.position.x -= speed;
+	} else if (key.which === 70) { // f
+		cone.position.x += speed;
 	}
 }
-
 
 // resize renderer with browser window
 function resize() {
