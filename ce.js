@@ -13,7 +13,8 @@ camera.position.z = 5
 // scene.add(cube);
 
 // cone
-var geometry2 = new THREE.ConeGeometry(.5, .5, .5);
+// var geometry2 = new THREE.ConeGeometry(.5, .5, .5);
+var geometry2 = new THREE.SphereGeometry(.75, 20, 20, 7, 7, 7, 7);
 var material2 = new THREE.MeshBasicMaterial({ color: 0xCCFF00, wireframe: true} );
 var cone = new THREE.Mesh(geometry2, material2);
 scene.add(cone);
