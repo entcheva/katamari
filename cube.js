@@ -34,3 +34,9 @@ function animate() {
     renderer.render( scene, camera );
 
 }
+
+// // cube
+// var geometry = new THREE.BoxGeometry(.5, .5, .5);
+// var material = new THREE.MeshBasicMaterial({ color: 0xCCFF00, wireframe: true });
+// var cube = new THREE.Mesh(geometry, material);
+// scene.add(cube);
